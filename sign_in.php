@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
 
+<head>
+<meta charset="UTF-8">
+</head>
+
 <?php
 
 if(isset($_POST["leggtil"]))
@@ -8,7 +12,7 @@ if(isset($_POST["leggtil"]))
 $tjener = "localhost";
 $brukernavn = "root";
 $passord = "";
-$database = "prosjekt_test";
+$database = "projekt_test";
 
 $kobling = new mysqli($tjener, $brukernavn, $passord, $database);
 
@@ -18,13 +22,13 @@ if($kobling -> connect_error)
 }
 
 
-	$epost = $_POST["e-post"];
+	$epost = $_POST["epost"];
 	$fornavn = $_POST["fornavn"];
 	$etternavn = $_POST["etternavn"];
 	$passord = $_POST["passord"];
 	$vekt = $_POST["vekt"];
 	
-	$sql = "INSERT INTO BRUKER (e-post, fornavn, etternavn, passord, vekt) VALUES ('$epost', '$fornavn', '$etternavn', '$passord', '$vekt')";
+	$sql = "INSERT INTO BRUKER (epost, fornavn, etternavn, passord, vekt) VALUES ('$epost', '$fornavn', '$etternavn', '$passord', '$vekt')";
 	
 	if($kobling->query($sql))
 	{
@@ -52,7 +56,7 @@ if($kobling -> connect_error)
 	<input type="text" name="passord">
 	
 	Vekt
-	<input type="text" name="passord">
+	<input type="text" name="vekt">
 	
 	<input type="submit" name="leggtil" value="Legg til">
 	
