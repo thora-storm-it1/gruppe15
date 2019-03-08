@@ -39,9 +39,9 @@ else{ echo "Wrong username or password";}
 <body>
 <h1> Login </h1>
 <form method="POST">
-e-mail<br>
+E-mail<br>
 <input type="text" name="epost">
-password
+Password<br>
 <input type="password" name="passord">
 <br>
 <input type="submit" value="Login">

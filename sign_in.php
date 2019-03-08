@@ -43,19 +43,19 @@ if($kobling -> connect_error)
 ?>
 
 <form method="POST">
-	Fornavn
+	Name
 	<input type="text" name="fornavn">
 	
-	Etternavn
+	Surname
 	<input type="text" name="etternavn">
 	
-	E-post
+	E-mail
 	<input type="text" name="epost">
 	
-	Passord
+	Password
 	<input type="text" name="passord">
 	
-	Vekt
+	Weight (kg)
 	<input type="text" name="vekt">
 	
 	<input type="submit" name="leggtil" value="Legg til">
