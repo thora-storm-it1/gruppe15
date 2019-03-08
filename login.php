@@ -29,7 +29,7 @@ if(mysqli_num_rows($result)==1)
 {
 	session_start();
 	$_SESSION["auth"]="true";
-	header("location: hovedside.php");
+	header("location: index.html");
 }
 
 else{ echo "Wrong username or password";}
