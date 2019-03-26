@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="login.css">
 </head>
-
 <body>
+
 <div class="container">
 <div class="box">
 <h1> LOGIN </h1>
@@ -20,7 +20,6 @@
 
 </div>
 </div>
-
 <?php
 
 if($_POST)
@@ -48,10 +47,17 @@ if(mysqli_num_rows($result)==1)
 {
 	session_start();
 	$_SESSION["auth"]="true";
+	while($rad = $result->fetch_assoc())
+{
+	$id = $rad['bruker_id'];
+}
+	$url = "hovedside.php?id". $id;
 	header("location: index.html");
+	exit();
 }
 
-else{ echo "Wrong username or password";}
+else
+{ echo "Wrong username or password";}
 }
 ?>
 </body>
