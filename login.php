@@ -1,7 +1,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="login.css">
 </head>
+
+<body>
+<div class="container">
+<div class="box">
+<h1> LOGIN </h1>
+
+<form method="POST">
+	<div class="input">
+		<input type="text" name="epost" placeholder="E-mail">
+		<input type="password" name="passord" placeholder="Password">
+	</div>
+<input type="submit" value="Login">
+</form>
+<a href="test_prosjekt.php"> Sign in here </a>
+
+</div>
+</div>
+
 <?php
 
 if($_POST)
@@ -35,16 +54,5 @@ if(mysqli_num_rows($result)==1)
 else{ echo "Wrong username or password";}
 }
 ?>
-
-<body>
-<h1> Login </h1>
-<form method="POST">
-E-mail<br>
-<input type="text" name="epost">
-Password<br>
-<input type="password" name="passord">
-<br>
-<input type="submit" value="Login">
-</form>
 </body>
 </html>
