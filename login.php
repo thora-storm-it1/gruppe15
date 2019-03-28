@@ -16,25 +16,14 @@
 	</div>
 <input type="submit" value="Login">
 </form>
-<a href="test_prosjekt.php"> Sign in here </a>
-
-</div>
-</div>
+<a href="sign_in.php"> Sign in here </a>
+<br>
 <?php
 
 if($_POST)
 {
-$tjener = "localhost";
-$brukernavn = "root";
-$passord = "";
-$database = "projekt_test";
 
-$kobling = new mysqli($tjener, $brukernavn, $passord, $database);
-
-if($kobling -> connect_error) 
-{
-	die ("Noe gikk galt:" . $kobling -> connect_error);
-}
+require 'kobling.php';
 
 $epost = $_POST["epost"];
 $passord = $_POST["passord"];
@@ -48,10 +37,9 @@ if(mysqli_num_rows($result)==1)
 	session_start();
 	$_SESSION["auth"]="true";
 	while($rad = $result->fetch_assoc())
-{
-	$id = $rad['bruker_id'];
-}
-	$url = "hovedside.php?id". $id;
+	{
+	$_SESSION['bruker_id'] = $rad['bruker_id'];
+	}
 	header("location: index.html");
 	exit();
 }
@@ -60,5 +48,7 @@ else
 { echo "Wrong username or password";}
 }
 ?>
+</div>
+</div>
 </body>
 </html>
