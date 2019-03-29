@@ -4,7 +4,7 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:testlogin4.php");
+	header("location:login.php");
 }
 
 if(isset($_POST["leggtil"]))
@@ -21,7 +21,7 @@ $query = "INSERT INTO logg (vekt, repetisjoner, oevelse_id, bruker_id, dato) VAl
 	
 if($kobling->query($query))
 	{
-		header("location:hovedside.php");
+		header("location:index.php");
 	}
 else
 {
