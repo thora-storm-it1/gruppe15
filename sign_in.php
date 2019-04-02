@@ -3,32 +3,30 @@
 
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="sign_in.css">
+<title> Sign In </title>
 </head>
+
+<body>
 
 <?php
 
 if(isset($_POST["leggtil"]))
 {
-$tjener = "localhost";
-$brukernavn = "root";
-$passord = "";
-$database = "projekt_test";
 
-$kobling = new mysqli($tjener, $brukernavn, $passord, $database);
-
-if($kobling -> connect_error) 
-{
-	die ("Noe gikk galt:" . $kobling -> connect_error);
-}
-
+	require 'kobling.php';
 
 	$epost = $_POST["epost"];
 	$fornavn = $_POST["fornavn"];
 	$etternavn = $_POST["etternavn"];
 	$passord = $_POST["passord"];
 	$vekt = $_POST["vekt"];
+	$hoyde = $_POST["hoyde"];
+	$fodselsaar = $_POST["fodselsaar"];
+	$kjonn = $_POST["kjonn"];
 	
-	$sql = "INSERT INTO BRUKER (epost, fornavn, etternavn, passord, vekt) VALUES ('$epost', '$fornavn', '$etternavn', '$passord', '$vekt')";
+	$sql = "INSERT INTO BRUKER (epost, fornavn, etternavn, passord, vekt, hoyde, fodselsaar, kjonn_id) 
+	VALUES ('$epost', '$fornavn', '$etternavn', '$passord', '$vekt', '$hoyde', '$fodselsaar', '$kjonn')";
 	
 	if($kobling->query($sql))
 	{
@@ -42,26 +40,53 @@ if($kobling -> connect_error)
 }
 ?>
 
+<div class="site">
+
+<div class="container">
+<div class="input">
 <form method="POST">
-	Name
-	<input type="text" name="fornavn">
+	<input type="text" name="fornavn" placeholder="Name" required>
 	
-	Surname
-	<input type="text" name="etternavn">
+	<input type="text" name="etternavn" placeholder="Surname" required>
 	
-	E-mail
-	<input type="text" name="epost">
+	<input type="text" name="epost" placeholder="E-mail" required>
 	
-	Password
-	<input type="text" name="passord">
+	<input type="password" name="passord" placeholder="Password" required>
+
+	<input type="number" name="vekt" placeholder="Weight in kg" required>
 	
-	Weight (kg)
-	<input type="text" name="vekt">
+	<input type="number" name="hoyde" placeholder="Height in cm" required>
 	
-	<input type="submit" name="leggtil" value="Legg til">
+	<input type="number" name="fodselsaar" placeholder="Birthyear" min="1940" max="2002" required>
 	
+	<?php
+	require 'kobling.php';
+	
+	echo "<select name='kjonn'>";
+	
+	$query = "SELECT * FROM kjonn";
+	$resultat = $kobling->query($query);
+	
+	while($rad = $resultat->fetch_assoc())
+	{
+	$kjonn_id = $rad["kjonn_id"];
+	$kjonn = $rad["kjonn"];
+	
+		echo "<option value='$kjonn_id'> $kjonn </option>";	
+	}	
+	echo "</select>";	
+
+	?>
+	
+	<div class="center">
+	<input type="submit" name="leggtil" value="Sign in">
+	</div>
+<p>Already have an account? <a href="testlogin4.php"> Login here</a>.</p>
+</div>	
 </form>
+</div>
+</div>
 
-
+</body>
 
 </html>

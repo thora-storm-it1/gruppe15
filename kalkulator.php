@@ -9,15 +9,12 @@
 <h1> Calculate </h1>
 
 <form method="GET">
-<select name="kjonn">
-	<option value="kvinne"> Female </option>
-	<option value="mann"> Male </option>
-</select>
 <select name="regn">
 	<option value="protein"> Protein</option>
 	<option value="kalori"> Calories</option>
 <input type="submit" name="kalkuler" value="Calculate">
 </form>
+<div class="svar">
 <?php
 
 session_start();
@@ -45,18 +42,18 @@ while($rad = $resultat->fetch_assoc())
 	
 }
 
-$kjonn = $_GET['kjonn'];
+$kjonn = $_SESSION['kjonn_id'];
 $regne = $_GET['regn'];
 
 
-	if($kjonn == "kvinne" & $regne == "kalori")
+	if($kjonn == 1 & $regne == "kalori")
 	{
 	$kcalk= 447.593 + (3.098*$hoyde) + (9.247*$vekt) - (4.33*$alder);
 
 	echo "Your BMR is at $kcalk calories";
 	}
 
-	else if ($kjonn == "mann" & $regne == "kalori")
+	else if ($kjonn == 2 & $regne == "kalori")
 	{
 	$kcalm=  88.362 + (4.799*$hoyde) + (13.397*$vekt) - (5.677*$alder);
 
@@ -71,5 +68,11 @@ $regne = $_GET['regn'];
 	}
 }
 ?>
+</div>
+
+<form method="link" action="logout.php">
+	<input type="submit" value="Log out">
+</form>
+
 </body>
 </html>

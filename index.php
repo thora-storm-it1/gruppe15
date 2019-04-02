@@ -38,6 +38,10 @@ require 'kobling.php';
 </div>
 </ul>
 
+<form method="link" action="logout.php">
+<input type="submit" value="Log out">
+</form>
+
 </div>
 </body>
 </html>

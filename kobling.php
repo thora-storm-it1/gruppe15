@@ -3,7 +3,7 @@
 $tjener = "localhost";
 $brukernavn = "root";
 $passord = "";
-$database = "projekt_test";
+$database = "databasetest";
 
 $kobling = new mysqli($tjener, $brukernavn, $passord, $database);
 

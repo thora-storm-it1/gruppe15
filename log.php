@@ -4,7 +4,7 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:login.php");
+	header("location:testlogin4.php");
 }
 
 if(isset($_POST["leggtil"]))
@@ -17,11 +17,11 @@ $bruker = $_SESSION["bruker_id"];
 $oevelse_id = $_POST["oevelse_id"];
 $dato = $_POST["dato"];
 
-$query = "INSERT INTO logg (vekt, repetisjoner, oevelse_id, bruker_id, dato) VAlUES ('$vekt', '$repetitisjoner', '$oevelse_id', '$bruker', '$dato')";
+$sql = "INSERT INTO logg (vekt, repetisjoner, o_id, bruker_id, dato) VAlUES ('$vekt', '$repetitisjoner', '$oevelse_id', '$bruker', '$dato')";
 	
-if($kobling->query($query))
+if($kobling->query($sql))
 	{
-		header("location:index.php");
+		header("location:hovedside.php");
 	}
 else
 {
@@ -49,15 +49,15 @@ else
 
 require 'kobling.php';
 
-$sql = "SELECT * FROM oevelse";
-$resultat = $kobling->query($sql);
-
 echo "<select name='oevelse_id'>";
+
+$query = "SELECT * FROM oevelse";
+$resultat = $kobling->query($query);
 
 while($rad = $resultat->fetch_assoc())
 {
-$oevelse_id = $rad["oevelse_id"];
-$oevelse = $rad["oevelse"];
+$oevelse_id = $rad["o_id"];
+$oevelse = $rad["type"];
 	
 	echo "<option value='$oevelse_id'> $oevelse </option>";	
 }	
@@ -68,6 +68,12 @@ echo "</select>";
 	<input type="submit" name="leggtil" value="Add">
 	
 </form>
+
+<form method="link" action="logout.php">
+	<input type="submit" value="Log out">
+</form>
+
+<a href="viewlogg.php">View Log</a>
 
 </body>
 </html>
