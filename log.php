@@ -4,7 +4,7 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:testlogin4.php");
+	header("location:login.php");
 }
 
 if(isset($_POST["leggtil"]))

@@ -30,12 +30,12 @@ if(isset($_POST["leggtil"]))
 	
 	if($kobling->query($sql))
 	{
-		echo "Spørringen $sql ble gjennomført.";
+		header("location: login.php");
 	}
 	
 	else
 	{
-		echo "Noe gikk galt med spørringen $sql ($kobling->error)";
+		echo "Could not create acount.";
 	}
 }
 ?>
