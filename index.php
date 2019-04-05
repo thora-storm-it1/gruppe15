@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel="stylesheet" href="hovedside.css">
+<link rel="stylesheet" href="Css/hovedside.css">
 </head>
 <?php
 
@@ -8,10 +8,10 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:login.php");
+	header("location:Sider/login.php");
 }
 
-require 'kobling.php';
+require 'Sider/kobling.php';
 
 ?>
 <html>
@@ -26,12 +26,12 @@ require 'kobling.php';
 <ul>
 <div class="valg">
 <div class="meny">
-	<li><a href="logg_main.php"><img src="log1.png" class="responsive"></a></li>
+	<li><a href="Sider\logg_main.php"><img src="Bilder/log1.png" class="responsive"></a></li>
 		<h2> Log </h2>
 		Log your lifts to see your progression
 </div>
 <div class="meny">
-	<li><a href="kalkulator.php"><img src="kalkuler.png" class="responsive"></a></li>
+	<li><a href="Sider\kalkulator.php"><img src="Bilder/kalkuler.png" class="responsive"></a></li>
 		<h2> Calculate </h1>
 		Chose to calculate either macros or calories
 </div>

@@ -2,6 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <title> Calculate </title>
+<link rel="stylesheet" href="..\Css\kalkulator.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:testlogin4.php");
+	header("location:Sider/login.php");
 }
 
 if(isset($_GET["kalkuler"]))

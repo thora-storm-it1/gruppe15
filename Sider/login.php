@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="..\Css\login.css">
 </head>
 <body>
 
@@ -40,7 +40,7 @@ if(mysqli_num_rows($result)==1)
 	{
 	$_SESSION['bruker_id'] = $rad['bruker_id'];
 	}
-	header("location: index.html");
+	header("location: index.php");
 	exit();
 }
 

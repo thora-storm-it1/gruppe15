@@ -4,7 +4,7 @@ session_start();
 
 if(!$_SESSION["auth"])
 {
-	header("location:login.php");
+	header("location: Sider/login.php");
 }
 
 if(isset($_POST["leggtil"]))
@@ -73,7 +73,7 @@ echo "</select>";
 	<input type="submit" value="Log out">
 </form>
 
-<a href="viewlogg.php">View Log</a>
+<a href="Sider/viewlogg.php">View Log</a>
 
 </body>
 </html>

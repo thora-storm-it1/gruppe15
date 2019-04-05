@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="sign_in.css">
+<link rel="stylesheet" href="..\Css\sign_in.css">
 <title> Sign In </title>
 </head>
 
@@ -81,7 +81,7 @@ if(isset($_POST["leggtil"]))
 	<div class="center">
 	<input type="submit" name="leggtil" value="Sign in">
 	</div>
-<p>Already have an account? <a href="testlogin4.php"> Login here</a>.</p>
+<p>Already have an account? <a href="login.php"> Login here</a>.</p>
 </div>	
 </form>
 </div>
